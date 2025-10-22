@@ -1,4 +1,6 @@
 using DemoApi.Data;
+using DemoApi.Repository;
+using DemoApi.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
 namespace DemoApi;
@@ -15,6 +17,9 @@ public class Program
             opt.UseSqlServer(
                 builder.Configuration.GetConnectionString("DemoApiDB")
                 ));
+
+        builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+        builder.Services.AddAutoMapper(cf =>{},typeof(Program).Assembly);
         
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

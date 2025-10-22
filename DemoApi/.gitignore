@@ -1,5 +1,5 @@
-.idea/
-compose.yml
+../.idea/
+../compose.yml
 appsettings.Development.json
 appsettings.json
 
